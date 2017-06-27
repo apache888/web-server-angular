@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>Developers</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Specialty</th>
+          <th>Experience</th>
+          <th>Salary</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let dev of devs">
+          <td class="devFullName"><a routerLink="/devs/{{dev.id}}" routerLinkActive="active"
+                                       (click)="onSelect(dev)">{{dev.firstName}} {{dev.lastName}}</a></td>
+          <td>{{dev.specialty}}</td>
+          <td>{{dev.experience}}</td>
+          <td>{{dev.salary}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+      <div>
+        <button class="btn btn-default" (click)="addDev()">Add Developer</button>
+      </div>
+    </div>
+  </div>
+</div>
