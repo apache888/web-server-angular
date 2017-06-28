@@ -43,8 +43,8 @@ export class DevService {
       .catch(this.handleError);
   }
 
-  deleteDev(dev_id: string): Observable<Developer> {
-    return this._http.delete((this.entity_url + '/' + dev_id))
+  deleteDev(devId: number): Observable<Developer> {
+    return this._http.delete((this.entity_url + '/' + devId))
       .map((response: Response) => <Developer> response.json())
       .catch(this.handleError);
   }

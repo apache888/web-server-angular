@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Developer} from '../dev';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DevService} from '../dev.service';
 
 @Component({
   selector: 'app-devs-detail',
@@ -7,9 +10,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevsDetailComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: string;
+  dev: Developer;
+
+  constructor(private route: ActivatedRoute, private router: Router, private devService: DevService) {
+    this.dev = <Developer>{};
+  }
 
   ngOnInit() {
+    const devId = this.route.snapshot.params['id'];
+    this.devService.getDevById(devId).subscribe(
+      developer => this.dev = developer,
+      error => this.errorMessage = <any> error);
   }
+
+  gotoDevsList() {
+    this.router.navigate(['/devs']);
+  }
+
+  editDev() {
+    this.router.navigate(['/devs', this.dev.id, 'edit']);
+  }
+
+  deleteDev(dev: Developer) {
+    this.devService.deleteDev(dev.id).subscribe(
+      developer => this.gotoDevsList(),
+      error => this.errorMessage = <any> error);
+  }
+
+  // deleteDev(dev: Developer) {
+  //   this.devService.deleteDev(dev.id).subscribe(
+  //     developer => {
+  //         this.dev = developer,
+  //         this.gotoDevsList();
+  //     },
+  //     error => this.errorMessage = <any> error);
+  // }
 
 }

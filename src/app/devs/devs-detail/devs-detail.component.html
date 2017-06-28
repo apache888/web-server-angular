@@ -1,3 +1,31 @@
-<p>
-  devs-detail works!
-</p>
+<div class="container-fluid">
+  <div class="container xd-container">
+
+    <h2>Developer Information</h2>
+
+
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th>
+        <td><b>{{dev.firstName}} {{dev.lastName}}</b></td>
+      </tr>
+      <tr>
+        <th>Specialty</th>
+        <td>{{dev.specialty}}</td>
+      </tr>
+      <tr>
+        <th>Experience</th>
+        <td>{{dev.experience}}</td>
+      </tr>
+      <tr>
+        <th>Salary</th>
+        <td>{{dev.salary}}</td>
+      </tr>
+    </table>
+
+    <button class="btn btn-default" (click)="gotoDevsList()">< Back</button>
+    <button class="btn btn-default" (click)="editDev()">Edit Developer</button>
+    <button class="btn btn-default" (click)="deleteDev(dev)">Delete Developer</button>
+
+  </div>
+</div>
