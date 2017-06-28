@@ -1,4 +1,7 @@
-# WebServerAngular2
+# WebServerAngular
+# REST web server in 3-tier model (Only frontend)
+
+Warning: client only. Use REST API from backend [spring-app-server-rest](https://github.com/apache888/spring-app-server-rest) project You need start backend server before start frontend application.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
 

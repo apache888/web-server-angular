@@ -6,7 +6,7 @@ import {DevsAddComponent} from './devs-add/devs-add.component';
 import {DevsDetailComponent} from './devs-detail/devs-detail.component';
 import {DevsEditComponent} from './devs-edit/devs-edit.component';
 
-const ownerRoutes: Routes = [
+const devsRoutes: Routes = [
   {path: 'devs', component: DevsListComponent},
   {path: 'devs/add', component: DevsAddComponent},
   {path: 'devs/:id', component: DevsDetailComponent},
@@ -15,7 +15,7 @@ const ownerRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(ownerRoutes),
+    RouterModule.forChild(devsRoutes),
     CommonModule
   ],
   exports: [RouterModule],

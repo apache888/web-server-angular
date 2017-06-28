@@ -1,4 +1,5 @@
-export class Developer {
+
+export interface Developer {
   id: number;
   firstName: string;
   lastName: string;

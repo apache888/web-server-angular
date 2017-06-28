@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {DevService} from '../dev.service';
 import {Developer} from '../dev';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-devs-list',
@@ -17,7 +18,7 @@ export class DevsListComponent implements OnInit {
 
   ngOnInit() {
     this.devService.getDevs().subscribe(
-      owners => this.devs = owners,
+      devs => this.devs = devs,
       error => this.errorMessage = <any> error);
   }
 

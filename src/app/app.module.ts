@@ -6,6 +6,7 @@ import {HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DevsModule } from './devs/devs.module';
+import {PartsModule} from './parts/parts.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DevsModule } from './devs/devs.module';
     FormsModule,
     HttpModule,
     DevsModule,
+    PartsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,3 +1,64 @@
-<p>
-  devs-add works!
-</p>
+<div class="container-fluid">
+  <div class="container xd-container">
+    <h2>
+      New Developer
+    </h2>
+    <form (ngSubmit)="onSubmit(devForm.value)" #devForm="ngForm" class="form-horizontal">
+      <div class="form-group" hidden="true">
+        <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="dev.id" name="id"/>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="firstName.dirty && firstName.valid" [class.has-error]="firstName.dirty &&  !firstName.valid">
+        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstName" [(ngModel)]="dev.firstName" minlength="2" required name="firstName" #firstName="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="firstName.valid" [class.glyphicon-remove]="!firstName.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="firstName.dirty && firstName.hasError('required')">First name is required</span>
+          <span class="help-block" *ngIf="firstName.dirty && firstName.hasError('minlength')">First name must be at least 2 characters long</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="lastName.dirty && lastName.valid" [class.has-error]="lastName.dirty && !lastName.valid">
+        <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="dev.lastName" name="lastName" minlength="2" required #lastName="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="lastName.valid" [class.glyphicon-remove]="!lastName.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="lastName.dirty && lastName.hasError('required')">Last name is required</span>
+          <span class="help-block" *ngIf="lastName.dirty && lastName.hasError('minlength')">Last name must be at least 2 characters long</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="specialty.dirty && specialty.valid" [class.has-error]="specialty.dirty && !specialty.valid">
+        <label for="specialty" class="col-sm-2 control-label">Specialty</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="specialty" [(ngModel)]="dev.specialty" name="specialty" required #specialty="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="specialty.valid" [class.glyphicon-remove]="!specialty.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="specialty.dirty && specialty.hasError('required')">Specialty is required</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="experience.dirty && experience.valid" [class.has-error]="experience.dirty && !experience.valid">
+        <label for="experience" class="col-sm-2 control-label">Experience</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="experience" [(ngModel)]="dev.experience" name="experience" required min="0" pattern="^[0-9]{0,10}$" #experience="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="experience.valid" [class.glyphicon-remove]="!experience.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="experience.dirty && experience.hasError('required')">Experience is required</span>
+          <span class="help-block" *ngIf="experience.dirty && experience.hasError('min')">Experience must be positive</span>
+          <span class="help-block" *ngIf="experience.dirty && experience.hasError('pattern')">Experience only accept digits</span>
+        </div>
+      </div>
+      <div class="form-group has-feedback" [class.has-success]="salary.dirty && salary.valid" [class.has-error]="salary.dirty && !salary.valid">
+        <label for="salary" class="col-sm-2 control-label">Salary</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="salary" [(ngModel)]="dev.salary" name="salary" required min="0" pattern="^[0-9]{0,10}$" #salary="ngModel"/>
+          <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="salary.valid" [class.glyphicon-remove]="!salary.valid" aria-hidden="true"></span>
+          <span class="help-block" *ngIf="salary.dirty && salary.hasError('required')">Salary is required</span>
+          <span class="help-block" *ngIf="salary.dirty && salary.hasError('min')">Salary must be positive</span>
+          <span class="help-block" *ngIf="salary.dirty && salary.hasError('pattern')" >Salary only accept digits</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button class="btn btn-default" type="button" (click)="gotoDevsList()">Back</button>
+          <button class="btn btn-default" type="submit" [disabled]="!devForm.valid">Add Developer</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

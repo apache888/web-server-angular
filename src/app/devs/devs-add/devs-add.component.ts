@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Developer} from '../dev';
+import {Router} from '@angular/router';
+import {DevService} from '../dev.service';
 
 @Component({
   selector: 'app-devs-add',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevsAddComponent implements OnInit {
 
-  constructor() { }
+  dev: Developer;
+  errorMessage: string;
+
+  constructor(private devService: DevService, private router: Router) {
+    this.dev = <Developer>{};
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit(dev: Developer) {
+    dev.id = null;
+    this.devService.addDev(dev).subscribe(
+      newDev => {
+        this.dev = newDev;
+        this.gotoDevsList();
+      },
+      error => this.errorMessage = <any>error
+    );
+  }
+
+  gotoDevsList() {
+    this.router.navigate(['/devs']);
   }
 
 }
