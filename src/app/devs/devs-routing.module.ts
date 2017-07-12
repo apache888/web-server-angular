@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {Routes, RouterModule} from '@angular/router';
 import {DevsListComponent} from './devs-list/devs-list.component';
 import {DevsAddComponent} from './devs-add/devs-add.component';
@@ -15,8 +14,7 @@ const devsRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(devsRoutes),
-    CommonModule
+    RouterModule.forChild(devsRoutes)
   ],
   exports: [RouterModule],
   declarations: []

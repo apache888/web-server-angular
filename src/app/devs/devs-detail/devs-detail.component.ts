@@ -33,7 +33,7 @@ export class DevsDetailComponent implements OnInit {
   }
 
   deleteDev(dev: Developer) {
-    this.devService.deleteDev(dev.id).subscribe(
+    this.devService.deleteDev(dev.id.toString()).subscribe(
       developer => this.gotoDevsList(),
       error => this.errorMessage = <any> error);
   }

@@ -24,9 +24,9 @@ export class DevsEditComponent implements OnInit {
       error => this.errorMessage = <any> error);
   }
 
-  onSubmit(dev) {
+  onSubmit(dev: Developer) {
     // let that = this;
-    this.devService.updateDev(dev.id, dev).subscribe(
+    this.devService.updateDev(dev.id.toString(), dev).subscribe(
       getResult,
       getError
     );

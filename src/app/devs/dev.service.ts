@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {environment} from '../../environments/environment';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 import {Developer} from './dev';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class DevService {
 
   getDevs(): Observable<Developer[]> {
     return this._http.get(this.entity_url)
-      .map((response: Response) => <Developer[]> response.json())
+      .map((response: Response) => <Developer[]> response.json().data)
       .catch(this.handleError);
   }
 
@@ -29,7 +29,8 @@ export class DevService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json;charset=UTF-8');
     headers.append('Accept', 'application/json');
-    return this._http.post(this.entity_url, JSON.stringify(dev), {headers})
+    const options = new RequestOptions({headers: headers});
+    return this._http.post(this.entity_url, JSON.stringify(dev), options)
       .map((response: Response) => <Developer> response.json())
       .catch(this.handleError);
   }
@@ -43,7 +44,7 @@ export class DevService {
       .catch(this.handleError);
   }
 
-  deleteDev(devId: number): Observable<Developer> {
+  deleteDev(devId: string): Observable<Developer> {
     return this._http.delete((this.entity_url + '/' + devId))
       .map((response: Response) => <Developer> response.json())
       .catch(this.handleError);
