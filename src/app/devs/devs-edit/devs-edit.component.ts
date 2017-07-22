@@ -10,7 +10,7 @@ import {Developer} from '../dev';
 })
 export class DevsEditComponent implements OnInit {
 
-  public developer;
+  public developer: Developer;
   errorMessage: string;
 
   constructor(private devService: DevService, private route: ActivatedRoute, private router: Router) {
@@ -25,7 +25,7 @@ export class DevsEditComponent implements OnInit {
   }
 
   onSubmit(dev: Developer) {
-    // let that = this;
+    const that = this;
     this.devService.updateDev(dev.id.toString(), dev).subscribe(
       getResult,
       getError
@@ -41,7 +41,7 @@ export class DevsEditComponent implements OnInit {
       console.log(update_status);
       if (update_status.status === 204) {
         console.log('update success');
-        this.gotoDevDetail(dev);
+        that.gotoDevDetail(dev);
       } else {
         return console.log('update failed');
       }

@@ -21,7 +21,7 @@ export class DevsAddComponent implements OnInit {
   }
 
   onSubmit(dev: Developer) {
-    // dev.id = null;
+    dev.id = null;
     this.devService.addDev(dev).subscribe(
       newDev => {
         this.dev = newDev;

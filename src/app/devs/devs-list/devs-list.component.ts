@@ -17,9 +17,9 @@ export class DevsListComponent implements OnInit {
   constructor(private router: Router, private devService: DevService) { }
 
   ngOnInit() {
-    this.devService.getDevs().subscribe(
-      devs => this.devs = devs,
-      error => this.errorMessage = <any> error);
+    this.devService.getDevs()
+      .subscribe(devs => this.devs = devs,
+                 error => this.errorMessage = <any> error);
   }
 
   onSelect(dev: Developer) {

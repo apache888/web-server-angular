@@ -15,7 +15,7 @@ export class DevService {
 
   getDevs(): Observable<Developer[]> {
     return this._http.get(this.entity_url)
-      .map((response: Response) => <Developer[]> response.json().data)
+      .map((response: Response) => <Developer[]> response.json())
       .catch(this.handleError);
   }
 
