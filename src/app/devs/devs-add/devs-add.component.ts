@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Developer} from '../dev';
 import {Router} from '@angular/router';
 import {DevService} from '../dev.service';
-
+/**
+ * Component to add Developer into db
+ */
 @Component({
   selector: 'app-devs-add',
   templateUrl: './devs-add.component.html',

@@ -36,7 +36,7 @@
       <div class="form-group has-feedback" [class.has-success]="experience.dirty && experience.valid" [class.has-error]="experience.dirty && !experience.valid">
         <label for="experience" class="col-sm-2 control-label">Experience</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="experience" [(ngModel)]="dev.experience" name="experience" required min="0" pattern="^[0-9]{0,10}$" #experience="ngModel"/>
+          <input type="number" class="form-control" id="experience" [(ngModel)]="dev.experience" name="experience" required min="1" pattern="^[0-9]{0,10}$" #experience="ngModel"/>
           <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="experience.valid" [class.glyphicon-remove]="!experience.valid" aria-hidden="true"></span>
           <span class="help-block" *ngIf="experience.dirty && experience.hasError('required')">Experience is required</span>
           <span class="help-block" *ngIf="experience.dirty && experience.hasError('min')">Experience must be positive</span>
@@ -46,7 +46,7 @@
       <div class="form-group has-feedback" [class.has-success]="salary.dirty && salary.valid" [class.has-error]="salary.dirty && !salary.valid">
         <label for="salary" class="col-sm-2 control-label">Salary</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="salary" [(ngModel)]="dev.salary" name="salary" required min="0" pattern="^[0-9]{0,10}$" #salary="ngModel"/>
+          <input type="number" class="form-control" id="salary" [(ngModel)]="dev.salary" name="salary" required min="1" pattern="^[0-9]{0,10}$" #salary="ngModel"/>
           <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="salary.valid" [class.glyphicon-remove]="!salary.valid" aria-hidden="true"></span>
           <span class="help-block" *ngIf="salary.dirty && salary.hasError('required')">Salary is required</span>
           <span class="help-block" *ngIf="salary.dirty && salary.hasError('min')">Salary must be positive</span>

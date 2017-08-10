@@ -14,7 +14,6 @@
 
         <tbody>
         <tr *ngFor="let dev of devs">
-          <!--<td class="ownerFullName">-->
           <td><a routerLink="/devs/{{dev.id}}" routerLinkActive="active"
                                        (click)="onSelect(dev)">{{dev.firstName}} {{dev.lastName}}</a></td>
           <td>{{dev.specialty}}</td>
