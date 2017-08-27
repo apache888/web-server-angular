@@ -21,7 +21,8 @@ export class DevsDetailComponent implements OnInit {
     const devId = this.route.snapshot.params['id'];
     this.devService.getDevById(devId).subscribe(
       developer => this.dev = developer,
-      error => this.errorMessage = <any> error);
+      error => {this.router.navigate(['/login']);
+        this.errorMessage = <any> error});
   }
 
   gotoDevsList() {

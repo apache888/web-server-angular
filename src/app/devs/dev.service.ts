@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import {Http, Response, Headers} from '@angular/http';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import {Developer} from './dev';
@@ -30,10 +30,6 @@ export class DevService {
   }
 
   addDev(dev: Developer): Observable<Developer> {
-    // const headers = new Headers();
-    // headers.append('Content-Type', 'application/json;charset=UTF-8');
-    // headers.append('Accept', 'application/json');
-    // const options = new RequestOptions({headers: headers});
     return this._http.post(this.entity_url, JSON.stringify(dev), {headers: this.headers})
       .map((response: Response) => <Developer> response.json())
       .catch(this.handleError);
@@ -41,8 +37,6 @@ export class DevService {
 
   updateDev(devId: string, dev: Developer): Observable<Developer> {
     const body = JSON.stringify(dev);
-    // const headers = new Headers({'Content-Type': ' application/json;charset=UTF-8'});
-    // const options = new RequestOptions({headers: headers});
     return this._http.put((this.entity_url + '/' + devId), body, {headers: this.headers})
       .map((response: Response) => response)
       .catch(this.handleError);

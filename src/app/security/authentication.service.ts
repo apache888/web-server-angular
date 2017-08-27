@@ -28,7 +28,7 @@ export class AuthenticationService {
       }).catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  getToken(): String {
+  getToken(): string {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const token = currentUser && currentUser.token;
     return token ? token : '';

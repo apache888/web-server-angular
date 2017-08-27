@@ -21,7 +21,8 @@ export class DevsEditComponent implements OnInit {
     const devId = this.route.snapshot.params['id'];
     this.devService.getDevById(devId).subscribe(
       dev => this.developer = dev,
-      error => this.errorMessage = <any> error);
+      error => {this.router.navigate(['/login']);
+        this.errorMessage = <any> error});
   }
 
   onSubmit(dev: Developer) {

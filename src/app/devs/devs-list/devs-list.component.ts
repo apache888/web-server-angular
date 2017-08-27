@@ -19,7 +19,8 @@ export class DevsListComponent implements OnInit {
   ngOnInit() {
     this.devService.getDevs()
       .subscribe(devs => this.devs = devs,
-                 error => this.errorMessage = <any> error);
+                 error => {this.router.navigate(['/login']);
+                          this.errorMessage = <any> error});
   }
 
   onSelect(dev: Developer) {
