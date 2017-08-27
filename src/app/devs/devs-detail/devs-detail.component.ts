@@ -37,14 +37,4 @@ export class DevsDetailComponent implements OnInit {
       () => this.gotoDevsList(),
       error => this.errorMessage = <any> error);
   }
-
-  // deleteDev(dev: Developer) {
-  //   this.devService.deleteDev(dev.id).subscribe(
-  //     developer => {
-  //         this.dev = developer,
-  //         this.gotoDevsList();
-  //     },
-  //     error => this.errorMessage = <any> error);
-  // }
-
 }

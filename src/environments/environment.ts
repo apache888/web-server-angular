@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  REST_API_URL: 'http://localhost:9966/app-server/api/'
+  REST_API_URL: 'http://localhost:9966/app-server/api/',
+  SERVER_URL: 'http://localhost:9966/app-server/'
 };
