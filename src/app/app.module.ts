@@ -9,6 +9,7 @@ import { DevsModule } from './devs/devs.module';
 import { PartsModule } from './parts/parts.module';
 import { LoginComponent } from './security/login/login.component';
 import {AuthenticationService} from './security/authentication.service';
+import {AuthGuard} from './security/authguard';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {AuthenticationService} from './security/authentication.service';
     PartsModule,
     AppRoutingModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

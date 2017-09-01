@@ -2,7 +2,6 @@
 
   <nav class="navbar navbar-default " role="navigation">
     <div class="container-fluid">
-
       <ul id="navbar">
         <li>
           <a routerLink="welcome" title="home page">
@@ -23,7 +22,22 @@
           </ul>
         </li>
       </ul>
+    </div>
 
+    <div class="container-fluid pull-right" >
+      <ul id="navbar2">
+        <li >
+          <a routerLink="login" title="login page">
+            <!--<span class="glyphicon glyphicon-home" aria-hidden="true"></span>-->
+            <span>Log in</span>
+          </a>
+        </li>
+        <li >
+          <button (click)="logout()" >
+            <span >Log out</span>
+          </button>
+        </li>
+      </ul>
     </div>
   </nav>
 
